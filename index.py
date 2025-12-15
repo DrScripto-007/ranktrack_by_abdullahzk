@@ -105,6 +105,11 @@ def main():
 
     # --- SIDEBAR CONFIG ---
     st.sidebar.header("⚙️ Configuration")
+    
+    # NEW: DEVELOPER CREDIT
+    st.sidebar.caption("Developed by: **Abdullah ZK**")
+    st.sidebar.markdown("---")
+    
     target_domain = st.sidebar.text_input("Target Domain (e.g., young10)", value="young10")
     location_code = st.sidebar.number_input("Location Code (2840=USA)", value=2840)
     device_type = st.sidebar.selectbox("Device Type", ["desktop", "mobile"])
