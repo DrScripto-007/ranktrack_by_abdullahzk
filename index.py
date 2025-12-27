@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 # Constants
 DFS_API_URL = "https://api.dataforseo.com/v3/serp/google/organic/live/advanced"
 # Using the credentials provided
-CREDENTIALS_B64 = "YWJkdWxsYWh6azJAY2hyb2xveC5jb206MTM5MDBlYjdkYjMwNWE2OQ=="
+CREDENTIALS_B64 = "YWJkdWxsYWh6azNAY2hyb2xveC5jb206YjRhYTFmMGIzZTNkN2M3Mg=="
 
 # --- CLASS 1: DATA FOR SEO API HANDLER ---
 class DataForSEOClient:
@@ -204,6 +204,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
