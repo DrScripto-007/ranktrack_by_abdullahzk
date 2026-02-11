@@ -1,38 +1,35 @@
-import sys
-import time
+import streamlit as st
 import pyfiglet
-from colorama import init, Fore, Style
+import time
 
-# Initialize colorama
-init(autoreset=True)
+# set page config (optional)
+st.set_page_config(page_title="Good Night", page_icon="🌙")
 
-def print_slow(str):
-    for letter in str:
-        sys.stdout.write(letter)
-        sys.stdout.flush()
-        time.sleep(0.05)
-    print()
-
-def good_night_message():
-    # Clear screen (optional, improves effect)
-    print("\033[H\033[J") 
+def good_night_streamlit():
+    # Center the title
+    st.markdown("<h1 style='text-align: center; color: cyan;'>🌙 Good Night 🌙</h1>", unsafe_allow_html=True)
     
-    # Create ASCII art
+    # Generate ASCII Art
     ascii_art = pyfiglet.figlet_format("Good Night", font="starwars")
     ascii_name = pyfiglet.figlet_format("Brother Saim", font="slant")
 
-    # Print the "Good Night" part in Cyan
-    print(Fore.CYAN + Style.BRIGHT + ascii_art)
+    # Display the ASCII art using st.text (preserves spacing)
+    # We use a code block or preformatted text to ensure it aligns correctly
+    st.text(ascii_art)
+    
+    # Add a small delay for effect (optional)
     time.sleep(0.5)
     
-    # Print the Name part in Yellow
-    print(Fore.YELLOW + Style.BRIGHT + ascii_name)
-    time.sleep(0.5)
-
-    # Print a sweet sub-message slowly
-    print(Fore.MAGENTA + "-" * 50)
-    print_slow(Fore.WHITE + "   Rest well and dream big. See you tomorrow! 🌙 ✨")
-    print(Fore.MAGENTA + "-" * 50)
+    st.text(ascii_name)
+    
+    # Add a nice message
+    st.markdown("---")
+    st.markdown("<h3 style='text-align: center; color: yellow;'>Rest well and dream big. See you tomorrow! ✨</h3>", unsafe_allow_html=True)
+    
+    # Button to trigger balloons
+    if st.button("Say Goodnight"):
+        st.balloons()
+        st.success("Sleep tight, Brother Saim!")
 
 if __name__ == "__main__":
-    good_night_message()
+    good_night_streamlit()
